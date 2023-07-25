@@ -654,25 +654,93 @@ const contractABI = [
  
 
 function App() {
+  const [connected, setConnected] = useState(false);
+  const [contract, setContract] = useState(null);
+  const [account, setAccount] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+  const [totalSupply, setTotalSupply] = useState(0);
+
+ 
+  async function mintTokens() {
+    try {
+      // Convert the quantity to a number
+      const quantityNumber = parseInt(quantity, 10);
+
+      // Check if the quantity is a valid number
+      if (isNaN(quantityNumber) || quantityNumber <= 0) {
+        alert("Invalid quantity. Please enter a valid number greater than 0.");
+        return;
+      }
+      
+      
+      // Call the freeMint function from the contract with the specified quantity
+      await contract.methods.freeMint(quantityNumber).send({ from: account });
+
+      // Optional: Display a success message or update the UI
+      alert(`Minted ${quantityNumber} tokens successfully!`);
+    } catch (error) {
+      alert("Minted token limit reached. Cannot mint more tokens.");
+    }
+  }
+
+  async function connectWallet() {
+    try {
+      if (window.ethereum) {
+        await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const web3 = new Web3(window.ethereum);
+        const contract = new web3.eth.Contract(contractABI, contractAddress);
+        const accounts = await web3.eth.getAccounts();
+        setConnected(true);
+        setContract(contract);
+        setAccount(accounts[0]);
+		//<p style={styles.walletText}>Wallet : {account}</p>
+
+
+        // Fetch and set total supply of tokens
+		const totalSupply1 = await contract.methods.totalSupply().call() ;
+		const totalSupply = Number(totalSupply1);
+        setTotalSupply(totalSupply);
+     
+      } else {
+        alert("Web3 not found. Please use a Web3-enabled browser or install a compatible wallet extension.");
+      }
+    } catch (error) {
+      alert("Error connecting to the wallet.");
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={styles.container}>
+      {connected ? (
+        <div style={styles.content}>
+		  <p style={styles.domain}>Bored Ape Gulf </p>
+          <p style={styles.presale}>Presale Minting </p>
+		  <p style={styles.info}>During the presale, participants can mint tokens for free. Each wallet is allowed to mint 1 token. </p>
+		  <p style={styles.totalSupplyText}>Minted : {totalSupply} / 5000</p> 
+          <input
+            type="number"
+            max="1"
+            name="quantity"
+            id="quantity-input"
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+            style={styles.input}
+          />
+          <br/><br/><br/>
+          <button onClick={mintTokens} style={styles.button}>Mint</button>
+		  <br/><br/><br/>
+
+        </div>
+      ) : (
+        <div style={styles.connectingContainer}>
+          <p style={styles.connectingText}>Connecting to Bored Ape Gulf Mint </p>
+          <button onClick={connectWallet} style={styles.connectWalletButton}>Connect Wallet</button>
+        </div>
+      )}
     </div>
   );
 }
+
 
 // Add your custom styles here
 const styles = {
