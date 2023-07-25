@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState } from "react";
 //import Web3 from "web3";
+import { useWeb3React } from "@web3-react/core";
+import { injected } from "./wallet/Connector";
 
 const contractAddress = "0xE221F82448D06ba5aB4CE0D5815Df06Ef33A5b15"; // Replace with your existing contract address
 const contractABI = [
