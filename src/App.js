@@ -668,7 +668,26 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-       
+        <div style={styles.content}>
+		  <p style={styles.domain}>Bored Ape Gulf </p>
+          <p style={styles.presale}>Presale Minting </p>
+		  <p style={styles.info}>During the presale, participants can mint tokens for free. Each wallet is allowed to mint 1 token. </p>
+		  <p style={styles.totalSupplyText}>Minted : {totalSupply} / 5000</p> 
+          <input
+            type="number"
+            max="1"
+            name="quantity"
+            id="quantity-input"
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+            style={styles.input}
+          />
+          <br/><br/><br/>
+          
+		  <br/><br/><br/>
+
+        </div>
+
       </header>
     </div>
   );
