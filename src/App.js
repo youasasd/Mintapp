@@ -652,7 +652,7 @@ const contractABI = [
  
 
 function App() {
- // const [connected, setConnected] = useState(false);
+  const [connected, setConnected] = useState(false);
   const [contract, setContract] = useState(null);
   const [account, setAccount] = useState(null);
   const [quantity, setQuantity] = useState(1);
@@ -688,7 +688,7 @@ function App() {
         const web3 = new Web3(window.ethereum);
         const contract = new web3.eth.Contract(contractABI, contractAddress);
         const accounts = await web3.eth.getAccounts();
-       // setConnected(true);
+        setConnected(true);
         setContract(contract);
         setAccount(accounts[0]);
 		//<p style={styles.walletText}>Wallet : {account}</p>
@@ -709,32 +709,12 @@ function App() {
 
   return (
     <div className="App" style={styles.container}>
-      
-        <div style={styles.content}>
-		  <p style={styles.domain}>Bored Ape Gulf </p>
-          <p style={styles.presale}>Presale Minting </p>
-		  <p style={styles.info}>During the presale, participants can mint tokens for free. Each wallet is allowed to mint 1 token. </p>
-		  <p style={styles.totalSupplyText}>Minted : {totalSupply} / 5000</p> 
-          <input
-            type="number"
-            max="1"
-            name="quantity"
-            id="quantity-input"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-            style={styles.input}
-          />
-          <br/><br/><br/>
-          <button onClick={mintTokens} style={styles.button}>Mint</button>
-		  <br/><br/><br/>
+    
 
-        </div>
-      
-        <div style={styles.connectingContainer}>
-          <p style={styles.connectingText}>Connecting to Bored Ape Gulf Mint </p>
-          <button onClick={connectWallet} style={styles.connectWalletButton}>Connect Wallet</button>
-        </div>
-      
+          <p>
+          I had made changes .
+          </p>
+   
     </div>
   );
 }
