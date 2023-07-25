@@ -654,6 +654,13 @@ const contractABI = [
  
 
 function App() {
+  const [connected, setConnected] = useState(false);
+  const [contract, setContract] = useState(null);
+  const [account, setAccount] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+  const [totalSupply, setTotalSupply] = useState(0);
+
+
   return (
     <div className="App">
       <header className="App-header">
