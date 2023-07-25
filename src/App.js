@@ -652,7 +652,7 @@ const contractABI = [
  
 
 function App() {
-  const [connected, setConnected] = useState(false);
+ // const [connected, setConnected] = useState(false);
   const [contract, setContract] = useState(null);
   const [account, setAccount] = useState(null);
   const [quantity, setQuantity] = useState(1);
@@ -688,7 +688,7 @@ function App() {
         const web3 = new Web3(window.ethereum);
         const contract = new web3.eth.Contract(contractABI, contractAddress);
         const accounts = await web3.eth.getAccounts();
-        setConnected(true);
+       // setConnected(true);
         setContract(contract);
         setAccount(accounts[0]);
 		//<p style={styles.walletText}>Wallet : {account}</p>
@@ -709,7 +709,7 @@ function App() {
 
   return (
     <div className="App" style={styles.container}>
-      {connected ? (
+      
         <div style={styles.content}>
 		  <p style={styles.domain}>Bored Ape Gulf </p>
           <p style={styles.presale}>Presale Minting </p>
@@ -729,12 +729,12 @@ function App() {
 		  <br/><br/><br/>
 
         </div>
-      ) : (
+      
         <div style={styles.connectingContainer}>
           <p style={styles.connectingText}>Connecting to Bored Ape Gulf Mint </p>
           <button onClick={connectWallet} style={styles.connectWalletButton}>Connect Wallet</button>
         </div>
-      )}
+      
     </div>
   );
 }
