@@ -683,7 +683,7 @@ function App() {
             style={styles.input}
           />
           <br/><br/><br/>
-          
+          <button style={styles.button}>Mint</button>
 		  <br/><br/><br/>
 
         </div>
