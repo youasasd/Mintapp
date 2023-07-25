@@ -717,34 +717,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> I had made changes .
         </p>
-        <div style={styles.container}>
-      {connected ? (
-        <div style={styles.content}>
-		  <p style={styles.domain}>Bored Ape Gulf </p>
-          <p style={styles.presale}>Presale Minting </p>
-		  <p style={styles.info}>During the presale, participants can mint tokens for free. Each wallet is allowed to mint 1 token. </p>
-		  <p style={styles.totalSupplyText}>Minted : {totalSupply} / 5000</p> 
-          <input
-            type="number"
-            max="1"
-            name="quantity"
-            id="quantity-input"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-            style={styles.input}
-          />
-          <br/><br/><br/>
-          <button onClick={mintTokens} style={styles.button}>Mint</button>
-		  <br/><br/><br/>
-
-        </div>
-      ) : (
-        <div style={styles.connectingContainer}>
-          <p style={styles.connectingText}>Connecting to Bored Ape Gulf Mint </p>
-          <button onClick={connectWallet} style={styles.connectWalletButton}>Connect Wallet</button>
-        </div>
-      )}
-    </div>
+       
        
       </header>
     </div>
