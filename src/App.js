@@ -664,10 +664,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+
+      <div style={styles.connectingContainer}>
+          <p style={styles.connectingText}>Connecting to Bored Ape Gulf Mint </p>
+          <button  style={styles.connectWalletButton}>Connect Wallet</button>
+        </div>
       
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
         <div style={styles.content}>
 		  <p style={styles.domain}>Bored Ape Gulf </p>
           <p style={styles.presale}>Presale Minting </p>
@@ -687,6 +689,7 @@ function App() {
 		  <br/><br/><br/>
 
         </div>
+
 
       </header>
     </div>
