@@ -681,7 +681,7 @@ function App() {
       // Optional: Display a success message or update the UI
       alert(`Minted ${quantityNumber} tokens successfully!`);
     } catch (error) {
-      alert("Minted token limit reached. Cannot mint more tokens.");
+      alert("Minted token error or limit reached. Cannot mint more tokens.");
     }
   }
 
