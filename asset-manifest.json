@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Mintapp/static/css/main.073c9b0a.css",
+    "main.js": "/Mintapp/static/js/main.e28d809e.js",
+    "static/js/787.d3bc1b59.chunk.js": "/Mintapp/static/js/787.d3bc1b59.chunk.js",
+    "index.html": "/Mintapp/index.html",
+    "main.073c9b0a.css.map": "/Mintapp/static/css/main.073c9b0a.css.map",
+    "main.e28d809e.js.map": "/Mintapp/static/js/main.e28d809e.js.map",
+    "787.d3bc1b59.chunk.js.map": "/Mintapp/static/js/787.d3bc1b59.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.e28d809e.js"
+  ]
+}
